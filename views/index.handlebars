@@ -1,7 +1,75 @@
-<ul>
-  {{#each burger}}
-    <li>
-      <p>Type: {{burgerName}}</p>
-    </li>
-  {{/each}}
-</ul>
+<div class="container">
+    <div class="row text-center">
+        <div class="col-sm-12 col-6 mx-auto">
+            <img src="/assets/image/burger.jpg" alt="burger" class="my-4 img-fluid">
+        </div>
+    </div>
+
+    <div class="row my-2 py-2">
+        <div class="col-sm-12 col-md-10 offset-md-1">
+            <h1 class="text-center welcome">Eat-Da-Burger!</h1>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-md-6 my-1">
+            <h2 class="ml-2 pl-3">Waiting to be Devoured!</h2>
+            <ul class="list-group">
+                {{#each burgers}}
+                {{#unless devoured}}
+                {{> burgers devoured=true}}
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+
+        <div class="col-md-6 my-1">
+            <h2 class="ml-2 pl-3">Already be Devoured!</h2>
+            <ul class="list-group ml-4">
+                {{#each burgers}}
+                {{#if devoured}}
+                {{> burgers/burger-block devoured=false}}
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+
+    <div class="row my-2 py-2">
+        <div class="col-sm-12 col-md-10 offset-md-1 text-center">
+
+            <form class="create-form">
+
+                <div class="form-group">
+                    <label for="burger">
+                        <p>Burger Name:</p>
+                    </label>
+                    <input type="text" id="burger" name="name">
+                </div>
+
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" name="devoured" value="0">
+                    <label for="fresh">
+                        <p>Fresh.</p>
+                    </label>
+                </div>
+
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" name="devoured" value="1">
+                    <label for="devoured">
+                        <p>Devoured.</p>
+                    </label>
+                </div>
+
+                <div class="text-center mt-2">
+                    <button class="btn btn-success" type="submit">
+                        <h5>Add a Burger</h5>
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
