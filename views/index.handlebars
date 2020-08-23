@@ -1,75 +1,56 @@
-<div class="container">
-    <div class="row text-center">
-        <div class="col-sm-12 col-6 mx-auto">
-            <img src="/assets/image/burger.jpg" alt="burger" class="my-4 img-fluid">
-        </div>
+{{!-- Code to render mysql data on --}}
+
+<div class="pageHead">
+  <h1>Burgers!</h1>
+  <img class="burgerPic" src="../assets/img/burger.jpeg" alt="Picture of a Burger">
+</div>
+
+
+<container class="row burgerLists">
+  <div class="uneaten-burger col-md-6">
+    <h2>Burgers!</h2>
+
+    <ul>
+      {{#each burgers}}
+        {{#unless devour}}
+          {{> burgers/burger-block devour=true}}
+      {{/unless}}
+      {{/each}}
+    </ul>
+  </div>
+
+
+
+  <div class="devoured-burger col-md-6">
+    <h2>Devoured!</h2>
+
+    <ul>
+      {{#each burgers}}
+        {{#if devour}}
+          {{> burgers/burger-block devour=false}}
+        {{/if}}
+      {{/each}}
+    </ul>
+  </div>
+
+</container>
+
+
+<div class="addBurgerForm">
+  <h2>Add a Burger</h2>
+  <form class="create-form">
+  
+    <div class="form-group">
+      <label for="bu">New Burger:</label>
+      <input type="text" id="bu" name="burger_name" placeholder="Add a new burger!">
     </div>
-
-    <div class="row my-2 py-2">
-        <div class="col-sm-12 col-md-10 offset-md-1">
-            <h1 class="text-center welcome">Eat-Da-Burger!</h1>
-        </div>
+  
+    <div class="form-group">
+      <label for="devour"></label><br>
+      <input type="radio" name="devour" value="1" checked> Devoured!<br>
+      <input type="radio" name="devour" value="0"> Uneaten!
     </div>
-
-    <div class="row mt-2">
-        <div class="col-md-6 my-1">
-            <h2 class="ml-2 pl-3">Waiting to be Devoured!</h2>
-            <ul class="list-group">
-                {{#each burgers}}
-                {{#unless devoured}}
-                <li>{{ this.burgers devoured=true}}</li>
-                {{/unless}}
-                {{/each}}
-            </ul>
-        </div>
-
-        {{!-- <div class="col-md-6 my-1">
-            <h2 class="ml-2 pl-3">Already be Devoured!</h2>
-            <ul class="list-group ml-4">
-                {{#each burgers}}
-                {{#if devoured}}
-                {{ burgers/burger-block devoured=false}}
-                {{/if}}
-                {{/each}}
-            </ul>
-        </div> --}}
-    </div>
-
-    <div class="row my-2 py-2">
-        <div class="col-sm-12 col-md-10 offset-md-1 text-center">
-
-            <form class="create-form">
-
-                <div class="form-group">
-                    <label for="burger">
-                        <p>Burger Name:</p>
-                    </label>
-                    <input type="text" id="burger" name="name">
-                </div>
-
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" name="devoured" value="0">
-                    <label for="fresh">
-                        <p>Fresh.</p>
-                    </label>
-                </div>
-
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" name="devoured" value="1">
-                    <label for="devoured">
-                        <p>Devoured.</p>
-                    </label>
-                </div>
-
-                <div class="text-center mt-2">
-                    <button class="btn btn-success" type="submit">
-                        <h5>Add a Burger</h5>
-                    </button>
-                </div>
-
-            </form>
-
-        </div>
-    </div>
-
+  
+    <button type="submit">Add Burger</button>
+  </form>
 </div>
