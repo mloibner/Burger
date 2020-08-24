@@ -2,7 +2,7 @@
 
 <div class="pageHead">
   <h1>Burgers!</h1>
-  <img class="burgerPic" src="../assets/img/burger.jpeg" alt="Picture of a Burger">
+  <img class="burgerPic" src="/assets/img/burger.jpeg" alt="Picture of a Burger">
 </div>
 
 
@@ -12,7 +12,7 @@
 
     <ul>
       {{#each burgers}}
-        {{#unless devour}}
+        {{#unless devoured}}
           {{> burgers/burger-block devour=true}}
       {{/unless}}
       {{/each}}
@@ -26,7 +26,7 @@
 
     <ul>
       {{#each burgers}}
-        {{#if devour}}
+        {{#if devoured}}
           {{> burgers/burger-block devour=false}}
         {{/if}}
       {{/each}}

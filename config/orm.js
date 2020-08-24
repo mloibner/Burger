@@ -17,9 +17,10 @@ const objToSql = (ob) => {
         let value = ob[key];
         if (Object.hasOwnProperty.call(ob, key)) {
             if (typeof value === "string" && value.indexOf(" ") >= 0) {
-                value = "'" + value + "'";
+                value = `\'${value}\'`;
             }
             arr.push(key + "=" + value);
+            console.log(value)
         }
     }
 
@@ -59,7 +60,7 @@ const orm = {
         });
     },
     updateOne: (table, objColVals, condition, cb) => {
-        let queryString = "UPDATE " + table;
+        let queryString = " UPDATE " + table;
 
         queryString += " SET ";
         queryString += objToSql(objColVals);

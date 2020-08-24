@@ -27,13 +27,12 @@ router.put("/api/burgers/:id", (req, res) => {
   
     burger.updateOne(
       {
+        devoured: req.body.devour,
         burger_name: req.body.burger_name
       },
       condition,
       (result) => {
-        if (result.changedRows === 0) {
-          return res.status(404).end();
-        }
+         
         res.status(200).end();
   
       }
