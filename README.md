@@ -22,7 +22,7 @@ An application which enables you to add a burger to eat, then devour the burger 
 ## Installation
 
   To install necessary dependencies, run the following command:
-   > npm i <
+   >npm i<
           
 
 ## Usage 
