@@ -22,7 +22,7 @@ An application which enables you to add a burger to eat, then devour the burger 
 ## Installation
 
   To install necessary dependencies, run the following command:
-   >npm i<
+   `npm i`
           
 
 ## Usage 
@@ -41,15 +41,3 @@ An application which enables you to add a burger to eat, then devour the burger 
 ### GitHub
     
   - [GitHub](m.loibner@hotmail.com)
-
-
-
-
-CODE
-To indicate a span of code, wrap it with backtick quotes (`). Unlike a pre-formatted code block, a code span indicates code within a normal paragraph. For example:
-
-Use the `printf()` function.
-will produce:
-
-<p>Use the <code>printf()</code> function.</p>
- 
