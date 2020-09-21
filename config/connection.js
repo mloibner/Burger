@@ -12,6 +12,7 @@ else {connection = mysql.createConnection({
   password: "Amelia2611.",
   database: "burgers_db"
 });
+}
 
 connection.connect((err) => {
   if (err) {
