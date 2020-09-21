@@ -24,10 +24,10 @@ router.put("/api/burgers/:id", (req, res) => {
     const condition = "id = " + req.params.id;
   
     console.log("condition", condition);
-  
+  console.log(req.body.devour)
     burger.updateOne(
       {
-        devoured: req.body.devour,
+        devoured: (req.body.devour === "true"),
         burger_name: req.body.burger_name
       },
       condition,
